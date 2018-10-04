@@ -4,16 +4,7 @@
 
 Android app to manage expenses
 
-#### Download the latest app from the release tab
-
-#### Testing
-https://www.youtube.com/watch?v=gdsxVfq-yNM&list=PLFYf87MeyEq588ibGPTu5lEhnJZG6KsmR
-
-https://www.youtube.com/watch?v=Vbe6kklkNhA
-
-https://www.youtube.com/watch?v=-uMo4jQdl8s
-
-#### Few Screen Shots Of The App
+## Few Screen Shots Of The App
 
 ![Alt text](https://github.com/ajitsing/ScreenShots/blob/master/em_new_expense.png)
 
@@ -25,8 +16,21 @@ https://www.youtube.com/watch?v=-uMo4jQdl8s
 
 ![Alt text](https://github.com/ajitsing/ScreenShots/blob/master/em_month_graph.png)
 
+## Testing
+https://www.youtube.com/watch?v=gdsxVfq-yNM&list=PLFYf87MeyEq588ibGPTu5lEhnJZG6KsmR
 
-#### Licence
+https://www.youtube.com/watch?v=Vbe6kklkNhA
+
+https://www.youtube.com/watch?v=-uMo4jQdl8s
+
+## Acknowledgements
+
+Agostino Mascitti - https://github.com/HerrAugust/ExpenseManager
+	has changed the application adding interesting features
+Ajit Singh - https://github.com/ajitsing/ExpenseManager
+	original version
+
+## Licence
 
 The MIT License (MIT)
 
