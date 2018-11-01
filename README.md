@@ -1,7 +1,7 @@
 # ExpenseManager
-Android app to manage expenses
+An open source Android app to manage expenses
 
-## Few Screen Shots Of The App
+## Screenshots
 
 ![Alt text](https://github.com/ajitsing/ScreenShots/blob/master/em_new_expense.png)
 
@@ -13,7 +13,7 @@ Android app to manage expenses
 
 ![Alt text](https://github.com/ajitsing/ScreenShots/blob/master/em_month_graph.png)
 
-## Testing
+## Testing videos
 https://www.youtube.com/watch?v=gdsxVfq-yNM&list=PLFYf87MeyEq588ibGPTu5lEhnJZG6KsmR
 
 https://www.youtube.com/watch?v=Vbe6kklkNhA
@@ -21,31 +21,32 @@ https://www.youtube.com/watch?v=Vbe6kklkNhA
 https://www.youtube.com/watch?v=-uMo4jQdl8s
 
 ## Acknowledgements
-Agostino Mascitti - https://github.com/HerrAugust/ExpenseManager
+Agostino Mascitti has changed the application adding interesting features
+	https://github.com/HerrAugust/ExpenseManager
 
-	has changed the application adding interesting features
-Ajit Singh - https://github.com/ajitsing/ExpenseManager
-
-	original version
+	
+Ajit Singh's original version
+	https://github.com/ajitsing/ExpenseManager
 
 ## Versions
 Version 1.0 - basic version, before October 2018
-	Categories of expenses
-	Add expense for the day
-	List of day expenses
-	Graph of month expenses
+	* Categories of expenses
+	* Add expense for the day
+	* List of day expenses
+	* Graph of month expenses
 
 Version November 2018
-	Added useful default category
-	Export/Import database
-	Create a different databases (actually, by associating every DB entry with a DB name)
+	* Added useful default category
+	* Support to euros
+	* Export/Import database
+	* Create a different databases (actually, by associating every DB entry with a DB name)
 
 TODO
-	Better graphs
-	Add other graphs, with other info
-	Better GUI
-	Encrypt DB
-	...
+	* Better graphs
+	* Add other graphs, with other info
+	* Better GUI
+	* Encrypt DB
+	* ...
 
 ## Licence
 
