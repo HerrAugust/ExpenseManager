@@ -32,8 +32,11 @@ Ajit Singh's original version
 Version 1.0 - basic version, before October 2018
 
 	* Categories of expenses
+	
 	* Add expense for the day
+	
 	* List of day expenses
+	
 	* Graph of month expenses
 
 Version November 2018
