@@ -20,14 +20,6 @@ https://www.youtube.com/watch?v=Vbe6kklkNhA
 
 https://www.youtube.com/watch?v=-uMo4jQdl8s
 
-## Acknowledgements
-Agostino Mascitti has changed the application adding interesting features
-	https://github.com/HerrAugust/ExpenseManager
-
-	
-Ajit Singh's original version
-	https://github.com/ajitsing/ExpenseManager
-
 ## Versions
 Version 1.0 - basic version, before October 2018
 - Categories of expenses
@@ -47,6 +39,13 @@ TODO
 - Better GUI
 - Encrypt DB
 - ...
+
+## Acknowledgements
+Agostino Mascitti has changed the application adding interesting features
+	https://github.com/HerrAugust/ExpenseManager
+
+Ajit Singh's original version
+	https://github.com/ajitsing/ExpenseManager
 
 ## Licence
 
