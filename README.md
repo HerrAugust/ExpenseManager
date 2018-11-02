@@ -30,18 +30,21 @@ Ajit Singh's original version
 
 ## Versions
 Version 1.0 - basic version, before October 2018
+
 	* Categories of expenses
 	* Add expense for the day
 	* List of day expenses
 	* Graph of month expenses
 
 Version November 2018
+
 	* Added useful default category
 	* Support to euros
 	* Export/Import database
 	* Create a different databases (actually, by associating every DB entry with a DB name)
 
 TODO
+
 	* Better graphs
 	* Add other graphs, with other info
 	* Better GUI
