@@ -41,10 +41,10 @@ TODO
 - ...
 
 ## Acknowledgements
-Agostino Mascitti has changed the application adding interesting features
+**Agostino Mascitti** has changed the application adding interesting features
 	https://github.com/HerrAugust/ExpenseManager
 
-Ajit Singh's original version
+**Ajit Singh**'s original version
 	https://github.com/ajitsing/ExpenseManager
 
 ## Licence
