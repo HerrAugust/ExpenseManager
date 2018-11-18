@@ -13,9 +13,11 @@ import android.widget.Toast;
 
 import java.util.List;
 
+import ajitsingh.com.expensemanager.Constants;
 import ajitsingh.com.expensemanager.R;
 import ajitsingh.com.expensemanager.database.ExpenseDatabaseHelper;
 import ajitsingh.com.expensemanager.presenter.ExpensePresenter;
+import ajitsingh.com.expensemanager.utils.SettingsUtil;
 import ajitsingh.com.expensemanager.view.ExpenseView;
 
 public class ExpenseFragment extends Fragment implements ExpenseView, View.OnClickListener {
@@ -30,7 +32,7 @@ public class ExpenseFragment extends Fragment implements ExpenseView, View.OnCli
     super.onActivityCreated(savedInstanceState);
 
     ExpenseDatabaseHelper expenseDatabaseHelper = new ExpenseDatabaseHelper(this.getActivity());
-    ExpensePresenter expensePresenter = new ExpensePresenter(expenseDatabaseHelper, this);
+    ExpensePresenter expensePresenter = new ExpensePresenter(expenseDatabaseHelper, this, getContext());
     expensePresenter.setExpenseTypes();
     expenseDatabaseHelper.close();
 
@@ -66,8 +68,9 @@ public class ExpenseFragment extends Fragment implements ExpenseView, View.OnCli
   @Override
   public void onClick(View view) {
     ExpenseDatabaseHelper expenseDatabaseHelper = new ExpenseDatabaseHelper(this.getActivity());
-    ExpensePresenter expensePresenter = new ExpensePresenter(expenseDatabaseHelper, this);
-    if(expensePresenter.addExpense()){
+    ExpensePresenter expensePresenter = new ExpensePresenter(expenseDatabaseHelper, this, getContext());
+    String curExpenseDB = new SettingsUtil(this.getContext()).get(Constants.settingsCurrentDatabase, Constants.defaultDatabaseName);
+    if(expensePresenter.addExpense(curExpenseDB)){
       MainActivity activity = (MainActivity) getActivity();
       Toast.makeText(activity, R.string.expense_add_successfully, Toast.LENGTH_LONG).show();
       activity.onExpenseAdded();

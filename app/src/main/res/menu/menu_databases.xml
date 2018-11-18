@@ -1,0 +1,8 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".DatabasesActivity">
+    <item
+        android:id="@+id/databases_add_database"
+        android:orderInCategory="100"
+        android:title="@string/action_add_database"/>
+</menu>

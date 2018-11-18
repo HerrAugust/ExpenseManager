@@ -5,6 +5,7 @@ public class Expense {
   private String date;
   private Long amount;
   private Integer id;
+  private ExpenseDatabase expenseDatabase; // external key to expense_database
 
   public Expense(Long amount, String type, String date) {
     this.type = type;
@@ -15,6 +16,11 @@ public class Expense {
   public Expense(Integer id, Long amount, String type, String date) {
     this(amount, type, date);
     this.id = id;
+  }
+
+  public Expense(Long aLong, String type, String currentDate, ExpenseDatabase database) {
+    this(aLong, type, currentDate);
+    this.expenseDatabase = database;
   }
 
   public Long getAmount() {
@@ -32,4 +38,9 @@ public class Expense {
   public Integer getId() {
     return id;
   }
+
+  public ExpenseDatabase getExpenseDatabase() {
+    return this.expenseDatabase;
+  }
+
 }

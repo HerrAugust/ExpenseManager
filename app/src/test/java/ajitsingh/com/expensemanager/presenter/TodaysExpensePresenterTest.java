@@ -29,7 +29,7 @@ public class TodaysExpensePresenterTest {
     Expense expense1 = new Expense(90l, "Food", "03-09-2015");
     Expense expense2 = new Expense(100l, "Travel", "31-08-2015");
     expenses = asList(expense1, expense2);
-    when(database.getTodaysExpenses()).thenReturn(expenses);
+    when(database.getTodaysExpenses(curExpensesDB)).thenReturn(expenses);
 
     presenter = new TodaysExpensePresenter(view, database);
   }

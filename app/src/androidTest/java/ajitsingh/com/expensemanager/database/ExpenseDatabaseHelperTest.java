@@ -15,8 +15,8 @@ import java.util.List;
 
 import ajitsingh.com.expensemanager.model.Expense;
 import ajitsingh.com.expensemanager.model.ExpenseType;
-import ajitsingh.com.expensemanager.table.ExpenseTable;
-import ajitsingh.com.expensemanager.table.ExpenseTypeTable;
+import ajitsingh.com.expensemanager.model.table.ExpenseTable;
+import ajitsingh.com.expensemanager.model.table.ExpenseTypeTable;
 
 import static android.support.test.InstrumentationRegistry.getTargetContext;
 import static org.hamcrest.core.Is.is;
@@ -84,7 +84,7 @@ public class ExpenseDatabaseHelperTest {
   public void shouldReturnTodaysExpenses() throws Exception {
     database.addExpense(new Expense(200l, "Food", "02-10-2015"));
 
-    List<Expense> expenses = database.getTodaysExpenses();
+    List<Expense> expenses = database.getTodaysExpenses(curExpensesDB);
 
     assertThat(expenses.size(), is(1));
     assertThat(expenses.get(0).getAmount(), is(200l));
@@ -97,7 +97,7 @@ public class ExpenseDatabaseHelperTest {
     database.addExpense(new Expense(200l, "Food", "02-10-2015"));
     database.addExpense(new Expense(300l, "Travel", "02-10-2015"));
 
-    List<Expense> expenses = database.getTodaysExpenses();
+    List<Expense> expenses = database.getTodaysExpenses(curExpensesDB);
 
     assertThat(expenses.size(), is(2));
   }

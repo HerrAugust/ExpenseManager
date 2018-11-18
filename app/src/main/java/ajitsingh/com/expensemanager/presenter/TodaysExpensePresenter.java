@@ -1,9 +1,13 @@
 package ajitsingh.com.expensemanager.presenter;
 
+import android.content.Context;
+
 import java.util.List;
 
+import ajitsingh.com.expensemanager.Constants;
 import ajitsingh.com.expensemanager.database.ExpenseDatabaseHelper;
 import ajitsingh.com.expensemanager.model.Expense;
+import ajitsingh.com.expensemanager.utils.SettingsUtil;
 import ajitsingh.com.expensemanager.view.TodaysExpenseView;
 
 public class TodaysExpensePresenter {
@@ -13,7 +17,8 @@ public class TodaysExpensePresenter {
 
   public TodaysExpensePresenter(TodaysExpenseView view, ExpenseDatabaseHelper expenseDatabaseHelper) {
     this.view = view;
-    expenses = expenseDatabaseHelper.getTodaysExpenses();
+    String curExpensesDB = new SettingsUtil().get(Constants.settingsCurrentDatabase, Constants.defaultDatabaseName);
+    expenses = expenseDatabaseHelper.getTodaysExpenses(curExpensesDB);
   }
 
   public void renderTotalExpense() {

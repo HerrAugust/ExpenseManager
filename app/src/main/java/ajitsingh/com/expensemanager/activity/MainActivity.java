@@ -1,17 +1,23 @@
 package ajitsingh.com.expensemanager.activity;
 
+import android.Manifest;
 import android.app.ActionBar;
 import android.app.FragmentTransaction;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.content.res.Configuration;
+import android.os.Build;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.support.v4.app.ActionBarDrawerToggle;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -19,11 +25,14 @@ import android.widget.AdapterView;
 import android.widget.FrameLayout;
 import android.widget.ListView;
 
+import ajitsingh.com.expensemanager.Constants;
 import ajitsingh.com.expensemanager.R;
 import ajitsingh.com.expensemanager.adapter.DrawerListViewAdapter;
 import ajitsingh.com.expensemanager.adapter.HomeViewPagerAdapter;
 import ajitsingh.com.expensemanager.notification.FillExpenseNotificationScheduler;
 import ajitsingh.com.expensemanager.presenter.NavigationDrawerPresenter;
+import ajitsingh.com.expensemanager.utils.PermissionsUtil;
+import ajitsingh.com.expensemanager.utils.SettingsUtil;
 import ajitsingh.com.expensemanager.view.NavigationDrawerItemView;
 
 
@@ -42,10 +51,16 @@ public class MainActivity extends FragmentActivity implements NavigationDrawerIt
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_main);
 
+    PermissionsUtil.verifyPermissions(this);
+
     configureDrawer();
     configureActionBar();
 
     if (!isNotificationScheduled) scheduleReminder();
+
+    Constants.defaultAppContext = this.getApplicationContext();
+    if(new SettingsUtil().get(Constants.settingsCurrentDatabase, "").equals(""))
+      new SettingsUtil().add(Constants.settingsCurrentDatabase, Constants.defaultDatabaseName);
   }
 
   @Override
@@ -98,15 +113,25 @@ public class MainActivity extends FragmentActivity implements NavigationDrawerIt
 
   @Override
   public boolean onOptionsItemSelected(MenuItem item) {
-    int id = item.getItemId();
+    Intent intent;
 
-    if (id == R.id.action_add_category) {
-      Intent intent = new Intent(this, AddCategoryActivity.class);
-      startActivityForResult(intent, ADD_NEW_CAT);
-      return true;
+    switch(item.getItemId()) {
+      case R.id.action_add_category:
+        intent = new Intent(this, AddCategoryActivity.class);
+        startActivityForResult(intent, ADD_NEW_CAT);
+        return true;
+      case R.id.action_manage_databases:
+        intent = new Intent(this, DatabasesActivity.class);
+        startActivity(intent);
+        return true;
+      case R.id.menu_main_backup:
+        intent = new Intent(this, BackupActivity.class);
+        startActivity(intent);
+        return true;
+      default:
+        return actionBarDrawerToggle.onOptionsItemSelected(item) || super.onOptionsItemSelected(item);
     }
 
-    return actionBarDrawerToggle.onOptionsItemSelected(item) || super.onOptionsItemSelected(item);
   }
 
   @Override
@@ -219,4 +244,5 @@ public class MainActivity extends FragmentActivity implements NavigationDrawerIt
     new FillExpenseNotificationScheduler().schedule(this);
     isNotificationScheduled = true;
   }
+
 }

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:layout_margin="@dimen/activity_horizontal_margin"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <Switch
+        android:id="@+id/backup_switch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:checked="true"
+        android:text="I want to backup " />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="________________________________"
+        android:gravity="center_horizontal"/>
+
+    <CheckBox
+        android:id="@+id/backup_checkbox_erase"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Erase current database"
+        android:enabled="false"/>
+
+
+    <TextView
+        android:id="@+id/backup_text_filefound"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="File expected at Document (SD card) folder not found"
+        android:layout_marginLeft="7dp"
+        android:visibility="invisible"/>
+
+    <Button
+        android:id="@+id/backup_button_backup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Backup"
+        android:layout_marginTop="15dp"
+        android:layout_gravity="center_horizontal" />
+
+</LinearLayout>

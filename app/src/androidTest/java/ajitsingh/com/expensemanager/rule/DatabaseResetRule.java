@@ -8,7 +8,7 @@ import java.util.List;
 
 import ajitsingh.com.expensemanager.database.ExpenseDatabaseHelper;
 import ajitsingh.com.expensemanager.model.ExpenseType;
-import ajitsingh.com.expensemanager.table.ExpenseTypeTable;
+import ajitsingh.com.expensemanager.model.table.ExpenseTypeTable;
 
 import static android.support.test.InstrumentationRegistry.getInstrumentation;
 
