@@ -8,13 +8,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import ajitsingh.com.expensemanager.R;
-import ajitsingh.com.expensemanager.database.ExpenseDatabaseHelper;
+import ajitsingh.com.expensemanager.model.ExpenseDatabaseHelper;
 import ajitsingh.com.expensemanager.model.ExpenseDatabase;
-import ajitsingh.com.expensemanager.presenter.CategoryPresenter;
-import ajitsingh.com.expensemanager.view.AddCategoryView;
 import ajitsingh.com.expensemanager.view.AddDatabaseView;
-
-import static ajitsingh.com.expensemanager.activity.MainActivity.ADD_NEW_CAT;
 
 
 public class AddDatabaseActivity extends FragmentActivity implements AddDatabaseView {

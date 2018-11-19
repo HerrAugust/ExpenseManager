@@ -4,7 +4,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.mockito.ArgumentCaptor;
 
-import ajitsingh.com.expensemanager.database.ExpenseDatabaseHelper;
+import ajitsingh.com.expensemanager.model.ExpenseDatabaseHelper;
 import ajitsingh.com.expensemanager.model.ExpenseType;
 import ajitsingh.com.expensemanager.view.AddCategoryView;
 

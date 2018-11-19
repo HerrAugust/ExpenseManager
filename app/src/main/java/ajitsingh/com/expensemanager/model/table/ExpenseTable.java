@@ -30,25 +30,28 @@ public class ExpenseTable implements BaseColumns {
     return query;
   }
 
-  public static String getConsolidatedExpensesForDates(ArrayList<String> dates) {
+  public static String getConsolidatedExpensesForDates(ArrayList<String> dates, int expeseDatabaseID) {
     String dateLike = "";
     for (String date : dates){
       dateLike += "date like '" + date + "%' " + (dates.get(dates.size() - 1) == date ? "" : "or ");
     }
 
-    dateLike = "SELECT "+ _ID +", date, type, sum(amount) as amount FROM " + TABLE_NAME + " JOIN " + ExpenseDatabaseTable.TABLE_NAME +
+    dateLike = "SELECT expenses." + _ID + ", expenses.date, expenses.type, sum(expenses.amount) as amount FROM " + TABLE_NAME + " JOIN " + ExpenseDatabaseTable.TABLE_NAME +
             " ON " + ExpenseDatabaseTable.TABLE_NAME + "." + ExpenseDatabaseTable._ID + " = " + ExpenseTable.TABLE_NAME  + "." + EXPENSE_DATABASE_ID +
-            " WHERE " + dateLike + " GROUP BY date, type";
+            " WHERE " + ExpenseDatabaseTable.TABLE_NAME + "." + ExpenseDatabaseTable._ID + " = " + expeseDatabaseID +
+            " AND " + dateLike + " GROUP BY expenses.date, expenses.type";
     return dateLike;
   }
 
-  public static String getExpenseForCurrentMonth(String currentMonthOfYear) {
-    String currentMonthsExpenses = "(SELECT " + _ID + ", date, type, amount FROM " +
+  // TODO can be simplified if date is of type DATE?
+  public static String getExpenseForCurrentMonth(String currentMonthOfYear, int expeseDatabaseID) {
+    String currentMonthsExpenses = "(SELECT expenses." + _ID + ", expenses.date, expenses.type, expenses.amount FROM " +
       TABLE_NAME + " JOIN " + ExpenseDatabaseTable.TABLE_NAME + // added by agost
             " ON " + ExpenseDatabaseTable.TABLE_NAME + "." + ExpenseDatabaseTable._ID + " = " + ExpenseTable.TABLE_NAME  + "." + EXPENSE_DATABASE_ID + // added by agost. TODO CORRECT?
-            " WHERE date like '%-" + currentMonthOfYear + "')";
+            " WHERE " + ExpenseDatabaseTable.TABLE_NAME + "." + ExpenseDatabaseTable._ID + " = " + expeseDatabaseID +
+            " AND date like '%-" + currentMonthOfYear + "')";
 
-    return "SELECT " + _ID + ", date, type, sum(amount) as amount FROM " +
-      currentMonthsExpenses + " GROUP BY type";
+    return "SELECT expenses." + _ID + ", expenses.date, expenses.type, sum(expenses.amount) as amount FROM " +
+      currentMonthsExpenses + " GROUP BY expenses.type";
   }
 }

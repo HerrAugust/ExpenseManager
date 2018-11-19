@@ -6,7 +6,7 @@ import org.junit.runners.model.Statement;
 
 import java.util.List;
 
-import ajitsingh.com.expensemanager.database.ExpenseDatabaseHelper;
+import ajitsingh.com.expensemanager.model.ExpenseDatabaseHelper;
 import ajitsingh.com.expensemanager.model.ExpenseType;
 import ajitsingh.com.expensemanager.model.table.ExpenseTypeTable;
 

@@ -10,7 +10,7 @@ import org.mockito.ArgumentCaptor;
 import java.util.List;
 import java.util.Map;
 
-import ajitsingh.com.expensemanager.database.ExpenseDatabaseHelper;
+import ajitsingh.com.expensemanager.model.ExpenseDatabaseHelper;
 import ajitsingh.com.expensemanager.model.Expense;
 import ajitsingh.com.expensemanager.view.CurrentWeekExpenseView;
 

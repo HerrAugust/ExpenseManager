@@ -7,7 +7,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import ajitsingh.com.expensemanager.R;
-import ajitsingh.com.expensemanager.database.ExpenseDatabaseHelper;
+import ajitsingh.com.expensemanager.model.ExpenseDatabaseHelper;
 import ajitsingh.com.expensemanager.presenter.CategoryPresenter;
 import ajitsingh.com.expensemanager.view.AddCategoryView;
 

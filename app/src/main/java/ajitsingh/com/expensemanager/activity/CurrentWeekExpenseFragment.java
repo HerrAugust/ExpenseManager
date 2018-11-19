@@ -13,7 +13,7 @@ import java.util.Map;
 
 import ajitsingh.com.expensemanager.R;
 import ajitsingh.com.expensemanager.adapter.CurrentWeeksExpenseAdapter;
-import ajitsingh.com.expensemanager.database.ExpenseDatabaseHelper;
+import ajitsingh.com.expensemanager.model.ExpenseDatabaseHelper;
 import ajitsingh.com.expensemanager.model.Expense;
 import ajitsingh.com.expensemanager.presenter.CurrentWeekExpensePresenter;
 import ajitsingh.com.expensemanager.view.CurrentWeekExpenseView;

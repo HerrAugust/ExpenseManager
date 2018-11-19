@@ -5,7 +5,7 @@ import org.junit.Test;
 
 import java.util.List;
 
-import ajitsingh.com.expensemanager.database.ExpenseDatabaseHelper;
+import ajitsingh.com.expensemanager.model.ExpenseDatabaseHelper;
 import ajitsingh.com.expensemanager.model.Expense;
 import ajitsingh.com.expensemanager.view.TodaysExpenseView;
 

@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import ajitsingh.com.expensemanager.R;
-import ajitsingh.com.expensemanager.database.ExpenseDatabaseHelper;
+import ajitsingh.com.expensemanager.model.ExpenseDatabaseHelper;
 import ajitsingh.com.expensemanager.presenter.CurrentMonthExpensePresenter;
 import ajitsingh.com.expensemanager.view.CurrentMonthExpenseView;
 

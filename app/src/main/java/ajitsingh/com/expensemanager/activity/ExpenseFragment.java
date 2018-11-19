@@ -15,7 +15,7 @@ import java.util.List;
 
 import ajitsingh.com.expensemanager.Constants;
 import ajitsingh.com.expensemanager.R;
-import ajitsingh.com.expensemanager.database.ExpenseDatabaseHelper;
+import ajitsingh.com.expensemanager.model.ExpenseDatabaseHelper;
 import ajitsingh.com.expensemanager.presenter.ExpensePresenter;
 import ajitsingh.com.expensemanager.utils.SettingsUtil;
 import ajitsingh.com.expensemanager.view.ExpenseView;

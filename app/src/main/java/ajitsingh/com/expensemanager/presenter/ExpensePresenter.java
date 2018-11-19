@@ -1,15 +1,12 @@
 package ajitsingh.com.expensemanager.presenter;
 
 import android.content.Context;
-import android.content.SharedPreferences;
-import android.preference.PreferenceManager;
 
-import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
 import ajitsingh.com.expensemanager.Constants;
-import ajitsingh.com.expensemanager.database.ExpenseDatabaseHelper;
+import ajitsingh.com.expensemanager.model.ExpenseDatabaseHelper;
 import ajitsingh.com.expensemanager.model.Expense;
 import ajitsingh.com.expensemanager.model.ExpenseDatabase;
 import ajitsingh.com.expensemanager.model.ExpenseType;

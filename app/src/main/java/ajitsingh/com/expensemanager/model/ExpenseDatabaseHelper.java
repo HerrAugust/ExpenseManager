@@ -1,4 +1,4 @@
-package ajitsingh.com.expensemanager.database;
+package ajitsingh.com.expensemanager.model;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -116,15 +116,17 @@ public class ExpenseDatabaseHelper extends SQLiteOpenHelper {
     return buildExpenses(cursor);
   }
 
-  public List<Expense> getCurrentWeeksExpenses() {
+  public List<Expense> getCurrentWeeksExpenses(String curExpensesDBName) {
     SQLiteDatabase database = this.getWritableDatabase();
-    Cursor cursor = database.rawQuery(ExpenseTable.getConsolidatedExpensesForDates(getCurrentWeeksDates()), null);
+    int id = this.getExpenseDatabaseByName(curExpensesDBName).getId(); // ID of current expenses DB
+    Cursor cursor = database.rawQuery(ExpenseTable.getConsolidatedExpensesForDates(getCurrentWeeksDates(), id), null);
     return buildExpenses(cursor);
   }
 
-  public List<Expense> getExpensesForCurrentMonthGroupByCategory() {
+  public List<Expense> getExpensesForCurrentMonthGroupByCategory(String curExpensesDBName) {
     SQLiteDatabase database = this.getWritableDatabase();
-    Cursor cursor = database.rawQuery(ExpenseTable.getExpenseForCurrentMonth(DateUtil.currentMonthOfYear()), null);
+    int id = this.getExpenseDatabaseByName(curExpensesDBName).getId(); // ID of current expenses DB
+    Cursor cursor = database.rawQuery(ExpenseTable.getExpenseForCurrentMonth(DateUtil.currentMonthOfYear(), id), null);
     return buildExpenses(cursor);
   }
 

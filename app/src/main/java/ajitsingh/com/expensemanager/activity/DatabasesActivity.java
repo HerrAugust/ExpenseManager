@@ -1,10 +1,8 @@
 package ajitsingh.com.expensemanager.activity;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.app.Activity;
-import android.preference.PreferenceManager;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -19,7 +17,7 @@ import java.util.List;
 
 import ajitsingh.com.expensemanager.Constants;
 import ajitsingh.com.expensemanager.R;
-import ajitsingh.com.expensemanager.database.ExpenseDatabaseHelper;
+import ajitsingh.com.expensemanager.model.ExpenseDatabaseHelper;
 import ajitsingh.com.expensemanager.model.ExpenseDatabase;
 import ajitsingh.com.expensemanager.utils.SettingsUtil;
 

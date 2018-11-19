@@ -1,7 +1,9 @@
 package ajitsingh.com.expensemanager.presenter;
 
-import ajitsingh.com.expensemanager.database.ExpenseDatabaseHelper;
+import ajitsingh.com.expensemanager.Constants;
+import ajitsingh.com.expensemanager.model.ExpenseDatabaseHelper;
 import ajitsingh.com.expensemanager.utils.ExpenseCollection;
+import ajitsingh.com.expensemanager.utils.SettingsUtil;
 import ajitsingh.com.expensemanager.view.CurrentWeekExpenseView;
 
 public class CurrentWeekExpensePresenter {
@@ -13,7 +15,8 @@ public class CurrentWeekExpensePresenter {
   public CurrentWeekExpensePresenter(ExpenseDatabaseHelper database, CurrentWeekExpenseView view) {
     this.database = database;
     this.view = view;
-    expenseCollection = new ExpenseCollection(this.database.getCurrentWeeksExpenses());
+    String curExpensesDB = new SettingsUtil().get(Constants.settingsCurrentDatabase, Constants.defaultDatabaseName);
+    expenseCollection = new ExpenseCollection(this.database.getCurrentWeeksExpenses(curExpensesDB));
   }
 
   public void renderTotalExpenses() {

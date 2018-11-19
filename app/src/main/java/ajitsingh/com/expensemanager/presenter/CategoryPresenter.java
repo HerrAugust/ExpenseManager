@@ -1,6 +1,6 @@
 package ajitsingh.com.expensemanager.presenter;
 
-import ajitsingh.com.expensemanager.database.ExpenseDatabaseHelper;
+import ajitsingh.com.expensemanager.model.ExpenseDatabaseHelper;
 import ajitsingh.com.expensemanager.model.ExpenseType;
 import ajitsingh.com.expensemanager.view.AddCategoryView;
 

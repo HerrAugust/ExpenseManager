@@ -5,9 +5,11 @@ import com.echo.holographlibrary.Bar;
 import java.util.ArrayList;
 import java.util.List;
 
-import ajitsingh.com.expensemanager.database.ExpenseDatabaseHelper;
+import ajitsingh.com.expensemanager.Constants;
+import ajitsingh.com.expensemanager.model.ExpenseDatabaseHelper;
 import ajitsingh.com.expensemanager.model.Expense;
 import ajitsingh.com.expensemanager.utils.ExpenseCollection;
+import ajitsingh.com.expensemanager.utils.SettingsUtil;
 import ajitsingh.com.expensemanager.view.CurrentMonthExpenseView;
 
 
@@ -17,7 +19,8 @@ public class CurrentMonthExpensePresenter {
 
   public CurrentMonthExpensePresenter(CurrentMonthExpenseView view, ExpenseDatabaseHelper database) {
     this.view = view;
-    List<Expense> expenses = database.getExpensesForCurrentMonthGroupByCategory();
+    String curExpensesDB = new SettingsUtil().get(Constants.settingsCurrentDatabase, Constants.defaultDatabaseName);
+    List<Expense> expenses = database.getExpensesForCurrentMonthGroupByCategory(curExpensesDB);
     expenseCollection = new ExpenseCollection(expenses);
   }
 

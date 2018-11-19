@@ -12,7 +12,7 @@ import java.util.List;
 
 import ajitsingh.com.expensemanager.R;
 import ajitsingh.com.expensemanager.adapter.TodaysExpenseListViewAdapter;
-import ajitsingh.com.expensemanager.database.ExpenseDatabaseHelper;
+import ajitsingh.com.expensemanager.model.ExpenseDatabaseHelper;
 import ajitsingh.com.expensemanager.model.Expense;
 import ajitsingh.com.expensemanager.presenter.TodaysExpensePresenter;
 import ajitsingh.com.expensemanager.view.TodaysExpenseView;
