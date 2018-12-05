@@ -20,7 +20,7 @@ public class TodaysExpensePresenter {
   }
 
   public void renderTotalExpense() {
-    Long totalExpense = 0l;
+    Float totalExpense = 0.0f;
     for (Expense expense : expenses)
       totalExpense += expense.getAmount();
 

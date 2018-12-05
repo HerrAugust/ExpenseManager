@@ -15,8 +15,8 @@ public class ExpenseCollection {
     this.expenses = expenses;
   }
 
-  public Long getTotalExpense(){
-    Long totalExpense = 0l;
+  public Float getTotalExpense(){
+    Float totalExpense = 0.0f;
     for (Expense expense : expenses) {
       totalExpense += expense.getAmount();
     }

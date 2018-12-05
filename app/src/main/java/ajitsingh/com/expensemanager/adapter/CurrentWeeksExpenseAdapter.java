@@ -49,7 +49,7 @@ public class CurrentWeeksExpenseAdapter implements ExpandableListAdapter {
   @Override
   public Object getGroup(int position) {
     String date = (String) this.expenses.keySet().toArray()[position];
-    Long totalExpense = new ExpenseCollection(this.expenses.get(date)).getTotalExpense();
+    Float totalExpense = new ExpenseCollection(this.expenses.get(date)).getTotalExpense();
 
     return date + " (" + getDayName(date) + ") - " + context.getString(R.string.rupee_sym) + totalExpense;
   }

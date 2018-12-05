@@ -20,6 +20,7 @@ import ajitsingh.com.expensemanager.utils.DateUtil;
 
 import static ajitsingh.com.expensemanager.utils.DateUtil.getCurrentDate;
 import static ajitsingh.com.expensemanager.utils.DateUtil.getCurrentWeeksDates;
+import static java.lang.Float.parseFloat;
 import static java.lang.Integer.parseInt;
 import static java.lang.Long.parseLong;
 
@@ -190,8 +191,8 @@ public class ExpenseDatabaseHelper extends SQLiteOpenHelper {
         String date = cursor.getString(cursor.getColumnIndex(ExpenseTable.DATE));
         String id = cursor.getString(cursor.getColumnIndex(ExpenseTable._ID));
 
-        Expense expense = id == null ? new Expense(parseLong(amount), type, date) :
-                new Expense(parseInt(id), parseLong(amount), type, date);
+        Expense expense = id == null ? new Expense(parseFloat(amount), type, date) :
+                new Expense(parseInt(id), parseFloat(amount), type, date);
         expenses.add(expense);
       } while(cursor.moveToNext());
     }
