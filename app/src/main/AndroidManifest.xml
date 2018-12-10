@@ -11,7 +11,7 @@
         android:label="@string/app_name"
         android:theme="@style/ExpenseManagerTheme">
         <activity
-            android:name=".activity.MainActivity"
+            android:name=".controller.activity.MainActivity"
             android:configChanges="orientation|screenSize"
             android:label="@string/app_name"
             android:windowSoftInputMode="stateHidden">
@@ -21,9 +21,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.AddCategoryActivity" />
+        <activity android:name=".controller.activity.AddCategoryActivity" />
 
-        <receiver android:name=".receiver.FillExpenseNotificationReceiver">
+        <receiver android:name=".controller.activity.receiver.FillExpenseNotificationReceiver">
             <intent-filter>
                 <action android:name="android.media.action.DISPLAY_NOTIFICATION" />
 
@@ -32,11 +32,11 @@
         </receiver>
 
         <activity
-            android:name=".activity.DatabasesActivity"
+            android:name=".controller.activity.DatabasesActivity"
             android:label="@string/title_activity_databases" />
-        <activity android:name=".activity.AddDatabaseActivity" />
+        <activity android:name=".controller.activity.AddDatabaseActivity" />
         <activity
-            android:name=".activity.BackupActivity"
+            android:name=".controller.activity.BackupActivity"
             android:label="@string/title_activity_backup"></activity>
     </application>
 
