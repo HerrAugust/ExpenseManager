@@ -37,4 +37,5 @@
     <string name="menu_main_import">Import DB</string>
     <string name="menu_main_backup"><![CDATA[Backup & Restore]]></string>
     <string name="title_activity_backup">BackupActivity</string>
+    <string name="euro_sym">€</string>
 </resources>

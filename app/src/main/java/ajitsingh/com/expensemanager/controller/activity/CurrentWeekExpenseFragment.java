@@ -45,6 +45,6 @@ public class CurrentWeekExpenseFragment extends Fragment implements CurrentWeekE
   @Override
   public void displayTotalExpenses(Float totalExpense) {
     TextView totalExpenseTextBox = (TextView) getActivity().findViewById(R.id.current_week_expense);
-    totalExpenseTextBox.setText(getString(R.string.total_expense) + " " + getString(R.string.rupee_sym) + totalExpense);
+    totalExpenseTextBox.setText(getString(R.string.total_expense) + " " + getString(R.string.euro_sym) + totalExpense);
   }
 }

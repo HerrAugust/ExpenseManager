@@ -3,7 +3,7 @@ An open source Android app to manage expenses
 
 ## Screenshots
 
-![Alt text](https://github.com/ajitsing/ScreenShots/blob/master/em_new_expense.png)
+![Alt text](screenshots/expense_manager_home.jpg)
 
 ![Alt text](https://github.com/ajitsing/ScreenShots/blob/master/em_today.png)
 
