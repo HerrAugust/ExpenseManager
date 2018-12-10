@@ -29,11 +29,18 @@ Version 1.0 - basic version, before October 2018
 
 Version November 2018
 - Added useful default category
-- Support to euros
 - Export/Import database
 - Create a different databases (actually, by associating every DB entry with a DB name)
 
+Version December 2018
+- Support to Euro
+- Expenses now deal with java.util.Date, and not strings representing them
+- SW Architecture reshaping, which is now more MVC
+- floating point expenses instead of integer ones
+
 TODO
+- Move "Add Expense" button above for usability
+- Fix graph of Current Month view
 - Better graphs
 - Add other graphs, with other info
 - Better GUI
@@ -41,11 +48,12 @@ TODO
 - ...
 
 ## Acknowledgements
-**Agostino Mascitti** has changed the application adding interesting features
-	https://github.com/HerrAugust/ExpenseManager
+**Agostino Mascitti** - https://github.com/HerrAugust/ExpenseManager
+- see Version November 2018 above
+- see Version December 2018 above
 
-**Ajit Singh**'s original version
-	https://github.com/ajitsing/ExpenseManager
+
+**Ajit Singh**'s original version - https://github.com/ajitsing/ExpenseManager
 
 ## Licence
 
