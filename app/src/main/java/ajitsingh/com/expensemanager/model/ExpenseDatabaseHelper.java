@@ -7,6 +7,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import ajitsingh.com.expensemanager.Constants;
@@ -78,9 +79,10 @@ public class ExpenseDatabaseHelper extends SQLiteOpenHelper {
   public boolean addExpense(Expense expense) {
     SQLiteDatabase database = this.getWritableDatabase();
     ContentValues values = new ContentValues();
+
     values.put(ExpenseTable.AMOUNT, expense.getAmount());
     values.put(ExpenseTable.TYPE, expense.getType());
-    values.put(ExpenseTable.DATE, expense.getDate());
+    values.put(ExpenseTable.DATE, DateUtil.dateToString(expense.getDate()));
     ExpenseDatabase curDB = expense.getExpenseDatabase();
     values.put(ExpenseTable.EXPENSE_DATABASE_ID, 0);
     if(curDB != null) { // Expense not assigned to any particular DB
@@ -188,8 +190,10 @@ public class ExpenseDatabaseHelper extends SQLiteOpenHelper {
       do {
         String type = cursor.getString(cursor.getColumnIndex(ExpenseTable.TYPE));
         String amount = cursor.getString(cursor.getColumnIndex(ExpenseTable.AMOUNT));
-        String date = cursor.getString(cursor.getColumnIndex(ExpenseTable.DATE));
+        String dateStr = cursor.getString(cursor.getColumnIndex(ExpenseTable.DATE));
         String id = cursor.getString(cursor.getColumnIndex(ExpenseTable._ID));
+
+        Date date = DateUtil.stringToDate(dateStr);
 
         Expense expense = id == null ? new Expense(parseFloat(amount), type, date) :
                 new Expense(parseInt(id), parseFloat(amount), type, date);

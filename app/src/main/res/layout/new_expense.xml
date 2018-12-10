@@ -47,6 +47,14 @@
                 android:layout_marginTop="15dp"
                 android:entries="@array/expense_types"/>
 
+            <DatePicker
+                android:id="@+id/expense_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:calendarViewShown="false"
+                android:layout_marginBottom="36dp" />
+
             <Button
                 style="@style/button_primary"
                 android:layout_width="match_parent"

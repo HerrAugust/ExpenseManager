@@ -27,13 +27,13 @@ public class ExpenseCollection {
   public Map<String, List<Expense>> groupByDate() {
     Map<String, List<Expense>> expensesByDate = new HashMap<>();
     for (Expense expense : expenses) {
-      if(expensesByDate.get(expense.getDate()) == null){
+      String expenseDateStr = DateUtil.dateToString(expense.getDate());
+      if(expensesByDate.get(expenseDateStr) == null){
         List<Expense> expensesList = new ArrayList<>();
         expensesList.add(expense);
-        expensesByDate.put(expense.getDate(), expensesList);
-
+        expensesByDate.put(expenseDateStr, expensesList);
       } else {
-        expensesByDate.get(expense.getDate()).add(expense);
+        expensesByDate.get(expenseDateStr).add(expense);
       }
     }
 

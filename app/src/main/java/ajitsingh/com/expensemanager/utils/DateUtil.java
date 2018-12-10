@@ -15,8 +15,36 @@ import java.util.Locale;
 public class DateUtil {
   public static final String DATE_FORMAT = "dd-MM-yyyy";
 
-  public static String getCurrentDate(){
-    return DateTime.now().toString(DATE_FORMAT);
+  /**
+   * Transforms date to string, according to the date format for this app
+   * @param date date to transform
+   * @return date as string
+   */
+  public static String dateToString(Date date){
+    return new SimpleDateFormat(DATE_FORMAT).format(date);
+  }
+
+  /**
+   * Make a string a date
+   * @param dateString the date as string
+   * @return string as date. NULL if string is invalid
+   */
+  public static Date stringToDate(String dateString) {
+    DateFormat format = new SimpleDateFormat(DATE_FORMAT);
+    Date date = null;
+
+    try {
+      date = format.parse(dateString);
+    } catch (ParseException e) {
+      e.printStackTrace();
+      date = null;
+    }
+
+    return date;
+  }
+
+  public static Date getCurrentDate() {
+    return DateTime.now().toDate();
   }
 
   public static ArrayList<String> getCurrentWeeksDates(){
@@ -49,6 +77,7 @@ public class DateUtil {
     return calendar.getDisplayName(Calendar.DAY_OF_WEEK, Calendar.SHORT, Locale.US);
   }
 
+  // todo remove and use the other methods in this class
   private static String getFormattedDate(LocalDate date, String format){
     SimpleDateFormat simpleDateFormat = new SimpleDateFormat(format);
     return simpleDateFormat.format(date.toDate());

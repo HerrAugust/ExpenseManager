@@ -2,7 +2,11 @@ package ajitsingh.com.expensemanager.model.table;
 
 import android.provider.BaseColumns;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
+
+import ajitsingh.com.expensemanager.utils.DateUtil;
 
 public class ExpenseTable implements BaseColumns {
   public static final String TABLE_NAME = "expenses";
@@ -15,18 +19,19 @@ public class ExpenseTable implements BaseColumns {
                                                       _ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "+
                                                       AMOUNT +" INTEGER,"+
                                                       TYPE +" TEXT, "+ /* TODO: why has he used ExpenseType so? */
-                                                      DATE +" TEXT, " + /* TODO: why text and not date? */
+                                                      DATE +" DATE, " +
                                                       EXPENSE_DATABASE_ID + " INTEGER," +
                                                       "FOREIGN KEY(" + EXPENSE_DATABASE_ID + ") REFERENCES " + ExpenseDatabaseTable.TABLE_NAME + "(" + ExpenseDatabaseTable._ID + ")" +
                                                   ");";
 
   public static final String SELECT_ALL = "SELECT * FROM " + TABLE_NAME + " ORDER BY " + _ID + " DESC";
 
-  public static String getExpensesForDate(String date, int expeseDatabaseID){
+  public static String getExpensesForDate(Date date, int expeseDatabaseID){
+    String dateStr = DateUtil.dateToString(date);
     String query = "SELECT " + ExpenseTable.TABLE_NAME + "." + "* FROM " + TABLE_NAME + " JOIN " + ExpenseDatabaseTable.TABLE_NAME +
       " ON " + ExpenseDatabaseTable.TABLE_NAME + "." + ExpenseDatabaseTable._ID + " = " + ExpenseTable.TABLE_NAME  + "." + EXPENSE_DATABASE_ID +
             " WHERE " + ExpenseDatabaseTable.TABLE_NAME + "." + ExpenseDatabaseTable._ID + " = " + expeseDatabaseID +
-            " AND date like '"+date+"%' ORDER BY " + _ID + " DESC";
+            " AND date like '" + dateStr + "%' ORDER BY " + _ID + " DESC";
     return query;
   }
 

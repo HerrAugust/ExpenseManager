@@ -7,10 +7,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 import ajitsingh.com.expensemanager.Constants;
@@ -53,6 +56,15 @@ public class ExpenseFragment extends Fragment implements ExpenseView, View.OnCli
   }
 
   @Override
+  public Date getDate() {
+    DatePicker expense_date = getActivity().findViewById(R.id.expense_date);
+    Calendar c = Calendar.getInstance();
+
+    c.set(expense_date.getYear(), expense_date.getMonth(), expense_date.getDayOfMonth());
+    return c.getTime();
+  }
+
+  @Override
   public void renderExpenseTypes(List<String> expenseTypes) {
     Spinner spinner = (Spinner) getActivity().findViewById(R.id.expense_type);
     ArrayAdapter<String> adapter = new ArrayAdapter<>(getActivity(), android.R.layout.simple_spinner_dropdown_item, expenseTypes);
@@ -66,10 +78,14 @@ public class ExpenseFragment extends Fragment implements ExpenseView, View.OnCli
   }
 
   @Override
+  /**
+   * Called when user clicks on "Add Expense" on the Main Activity
+   */
   public void onClick(View view) {
     ExpenseDatabaseHelper expenseDatabaseHelper = new ExpenseDatabaseHelper(this.getActivity());
     ExpensePresenter expensePresenter = new ExpensePresenter(expenseDatabaseHelper, this, getContext());
     String curExpenseDB = new SettingsUtil(this.getContext()).get(Constants.settingsCurrentDatabase, Constants.defaultDatabaseName);
+
     if(expensePresenter.addExpense(curExpenseDB)){
       MainActivity activity = (MainActivity) getActivity();
       Toast.makeText(activity, R.string.expense_add_successfully, Toast.LENGTH_LONG).show();

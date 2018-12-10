@@ -35,7 +35,7 @@ public class ExpensePresenter {
     }
 
     ExpenseDatabase expenseDatabase = new ExpenseDatabaseHelper(Constants.defaultAppContext).getExpenseDatabaseByName(expenseDatabaseName);
-    Expense expense = new Expense(Float.valueOf(amount), view.getType(), getCurrentDate(), expenseDatabase);
+    Expense expense = new Expense(Float.valueOf(amount), view.getType(), view.getDate(), expenseDatabase);
     return database.addExpense(expense);
   }
 
